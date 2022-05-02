@@ -1,27 +1,55 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import bancoDeDadosPokemons from "../../services";
+import Button from "../../components/Button";
 import {
-    Button,
     Container,
-    Title
+    Title,
+    Header,
+    Input,
+    Main,
+    FlatList,
+    // Buttoninput
 } from "./styles"
+import { IDadosPokemons } from "../../interface/dadosPokemonsModel";
 
 function Home({ navigation: { navigate } }) {
 
-    const navigation = () => { navigate("Login") }
+    const [dadosPokemons, setDadosPokemons] = useState<IDadosPokemons>()
 
+    const getPokemons = useCallback(async () => {
+        try {
+            const data = await bancoDeDadosPokemons.get("/pokemon")
+            setDadosPokemons(data.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }, [])
+
+    useEffect(() => {
+        getPokemons()
+    }, [])
     return (
         <Container>
-            <Title>Home Screen</Title>
-            <Button
-                onPress={navigation}
-            >
-                <Title>
-                    Navegar para login
-                </Title>
-            </Button>
+            <Header>
+                <Title>Pokedex</Title>
+                <Input></Input>
+                {/* <Buttoninput>Pesquisar</Buttoninput> */}
+            </Header>
+
+            <FlatList
+                data={dadosPokemons?.results}
+                renderItem={({ item }) => (
+
+                    <Button
+                        pokemonName={item.name}
+                        onPress={() => { navigate("Login") }}
+                    />
+
+                )}
+            />
+
         </Container>
     );
 }
-
 
 export default Home;
