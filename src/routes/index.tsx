@@ -2,7 +2,7 @@ import * as React from 'react';
 import Home from "../pages/Home";
 import Login from '../pages/Login';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Pikachu from '../pages/Pokemon/Pikachu';
+import PokemonPage from '../pages/PokemonPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +17,7 @@ function Routes() {
       >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Pikachu" component={Pikachu} />
+        <Stack.Screen name="PokemonPage" component={PokemonPage} />
       </Stack.Navigator>
     </>
   );

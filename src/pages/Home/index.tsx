@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import bancoDeDadosPokemons from "../../services";
 import Button from "../../components/Button";
+import Logo from "../../assets/logo.png";
 import {
     Container,
     Title,
     Header,
     Input,
-    Main,
     FlatList,
+    Img
     // Buttoninput
 } from "./styles"
 import { IDadosPokemons } from "../../interface/dadosPokemonsModel";
@@ -31,7 +32,8 @@ function Home({ navigation: { navigate } }) {
     return (
         <Container>
             <Header>
-                <Title>Pokedex</Title>
+                <Img source={Logo}
+                />
                 <Input></Input>
                 {/* <Buttoninput>Pesquisar</Buttoninput> */}
             </Header>
@@ -42,9 +44,8 @@ function Home({ navigation: { navigate } }) {
 
                     <Button
                         pokemonName={item.name}
-                        onPress={() => { navigate("Login") }}
+                        onPress={() => { navigate("PokemonPage", item) }}
                     />
-
                 )}
             />
 

@@ -61,3 +61,10 @@ export const Cards = styled.View`
 export const FlatList = styled.FlatList`
 
 `;
+
+
+export const Img = styled.Image`
+    align-self: center;
+    width: 80px;
+    height: 80px;
+`;

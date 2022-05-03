@@ -8,6 +8,8 @@ export const ButtonContainer = styled.TouchableOpacity`
     justify-content: center;
     align-items: center;
     border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
 `;
 
 export const Name = styled.Text`
