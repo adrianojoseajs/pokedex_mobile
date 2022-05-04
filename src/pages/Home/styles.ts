@@ -5,28 +5,6 @@ export const Container = styled.View`
     flex: 1;
 `;
 
-export const Header = styled.View`
-    background: #0062B0;
-    width: 100%;
-    height: 160px;
-`;
-
-export const Title = styled.Text`
-    margin: auto auto auto auto;
-    color: white;
-    font-size: 28px;
-`;
-
-export const Input = styled.TextInput`
-    background: #0062B0;
-    border: solid 2px #FFCC00;
-    border-radius: 20px;
-    width: 95%;
-    margin: auto auto auto auto;
-    color: #ffffff;
-    font-size: 16px;
-`;
-
 // export const Buttoninput = styled.TextInput`
 // `;
 
@@ -42,7 +20,7 @@ export const Login = styled.Text`
 `;
 
 export const Button = styled.TouchableOpacity`
-
+    background: red ;
 `;
 
 export const Cards = styled.View`

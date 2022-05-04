@@ -47,13 +47,12 @@ function PokemonPage({ navigation: { navigate }, route: { params } }) {
                     <Habilidade>{dadoDeUmPoke?.abilities[0].ability.name}</Habilidade>
                 </Div>
                 <Div>
-                    <Tamanho>{dadoDeUmPoke?.height}cm</Tamanho>
-                    <Peso>{dadoDeUmPoke?.weight}kg</Peso>
+                    <Tamanho>{dadoDeUmPoke?.height} Cm</Tamanho>
+                    <Peso>{dadoDeUmPoke?.weight} Kg</Peso>
                 </Div>
             </Carta>
         </Container>
     );
 }
-
 
 export default PokemonPage;

@@ -5,6 +5,7 @@ export const Container = styled.View`
     align-items: center;
     justify-content: center;
     background: #f5f5f5;
+    margin-bottom: 20px;
 `;
 
 export const Img = styled.Image`
