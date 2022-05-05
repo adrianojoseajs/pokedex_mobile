@@ -14,42 +14,36 @@ export const Img = styled.Image`
 `;
 
 export const Row = styled.View`
-        flex: 1;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        margin: 0px 10px 0px 10px;
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    margin: 10px 0;
 `;
 
 export const Input = styled.TextInput`
-    background: #0062B0;
-    border: solid 2px #FFCC00;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 0px;
-    border-top-right-radius: 0px;
+    border: 2px #FFCC00;
+    justify-content: center;
+    align-items: center;
     width: 70%;
-    height: 62px;
-    margin: auto auto auto auto;
+    height: 60px;
     color: #ffffff;
     font-size: 20px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding: 0 20px;
 `;
 
 export const Btnbuscar = styled.TouchableOpacity`
     background: #FFCC00;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 0 auto;
-    width: 80px;
-    height: 30px;
-    margin-bottom: 5px;
-    font-size: 20px;
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
     width: 30%;
+    font-size: 20px;
     height: 60px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 `;
 
 export const Text = styled.Text`

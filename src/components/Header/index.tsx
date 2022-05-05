@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import bancoDeDadosPokemons from "../../services";
 import Logo from "../../assets/logo.png";
 
@@ -11,16 +11,30 @@ import {
     Row
 } from "./styles"
 
-const Header = ({ }) => {
+const Header = ({
+    onPressSearch
+}) => {
+
+    const [pesquisa, setPesquisa] = useState("")
+
+    const changePesquisa = (value: string) => {
+        setPesquisa(
+            value.toLowerCase()
+        )
+    }
+
     return (
         <Navbar>
             <Img source={Logo}
             />
             <Row>
-                <Input>
-                </Input>
-                <Btnbuscar>
+                <Input
+                    onChangeText={changePesquisa}
+                />
+                <Btnbuscar onPress={() => onPressSearch(pesquisa)}
+                >
                     <Text>
+                        {/* <Img></Img> */}
                         Busque
                     </Text>
                 </Btnbuscar>

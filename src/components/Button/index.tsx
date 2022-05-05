@@ -1,29 +1,58 @@
-import React from "react"
+import { useNavigation } from "@react-navigation/native"
+import React, { useCallback, useEffect, useState } from "react"
 import { GestureResponderEvent, TouchableOpacity, TouchableOpacityProps } from "react-native"
+import { IDadoDeUmPoke } from "../../interface/dadoDeUmPoke"
+import { IDadosPokemons, IPokemon } from "../../interface/dadosPokemonsModel"
+import bancoDeDadosPokemons from "../../services"
 import {
     ButtonContainer,
-    Name
+    Name,
+    Img
 } from "./styles"
 
 interface ButtonProps extends TouchableOpacityProps {
+    item: IPokemon
     pokemonName: string
-    onPress: (event: GestureResponderEvent) => void
+    dataChanged: number
 }
 
 const Button = ({
     pokemonName,
-    onPress,
+    item,
+    dataChanged,
     ...rest
 }: ButtonProps) => {
+
+    const { navigate } = useNavigation()
+
+    const [dadoDeUmPoke, setDadoDeUmPoke] = useState<IDadoDeUmPoke>()
+
+    const getPokemon = useCallback(async () => {
+        try {
+            const data = await bancoDeDadosPokemons.get(item.url)
+            setDadoDeUmPoke(data.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }, [dataChanged])
+
+    useEffect(() => {
+        getPokemon()
+    }, [dataChanged])
+
     return (
         <>
             <ButtonContainer
-                onPress={onPress}
+                onPress={() => { navigate("PokemonPage", dadoDeUmPoke) }}
                 {...rest}
             >
                 <Name>
                     {pokemonName}
                 </Name>
+                <Img source={{
+                    uri: dadoDeUmPoke?.sprites.front_default
+                }}
+                />
             </ButtonContainer>
         </>
     )

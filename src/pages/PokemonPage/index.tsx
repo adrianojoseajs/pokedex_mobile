@@ -18,37 +18,22 @@ import { Image } from "react-native"
 
 function PokemonPage({ navigation: { navigate }, route: { params } }) {
 
-    const isFocused = useIsFocused()
-
-    const [dadoDeUmPoke, setDadoDeUmPoke] = useState<IDadoDeUmPoke>()
-
-    const getPokemon = useCallback(async () => {
-        try {
-            const data = await bancoDeDadosPokemons.get(params.url)
-            isFocused && setDadoDeUmPoke(data.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }, [isFocused])
-
-    useEffect(() => {
-        getPokemon()
-    }, [isFocused])
+    console.log(params)
 
     return (
         <Container>
             <Carta>
-                <Name>{dadoDeUmPoke?.name}</Name>
+                <Name>{params?.name}</Name>
                 <Img
-                    source={{ uri: dadoDeUmPoke?.sprites.other["official-artwork"].front_default }}
+                    source={{ uri: params?.sprites.other["official-artwork"].front_default }}
                 />
                 <Div>
-                    <Categoria>{dadoDeUmPoke?.types[0].type.name}</Categoria>
-                    <Habilidade>{dadoDeUmPoke?.abilities[0].ability.name}</Habilidade>
+                    <Categoria>{params?.types[0].type.name}</Categoria>
+                    <Habilidade>{params?.abilities[0].ability.name}</Habilidade>
                 </Div>
                 <Div>
-                    <Tamanho>{dadoDeUmPoke?.height} Cm</Tamanho>
-                    <Peso>{dadoDeUmPoke?.weight} Kg</Peso>
+                    <Tamanho>{params?.height} Cm</Tamanho>
+                    <Peso>{params?.weight} Kg</Peso>
                 </Div>
             </Carta>
         </Container>

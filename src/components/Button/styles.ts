@@ -2,19 +2,23 @@ import styled from "styled-components/native";
 
 export const ButtonContainer = styled.TouchableOpacity`
     background: white;
-    width: 98%;
+    width: 96%;
     height: 80px;
-    justify-content: center;
     align-items: center;
     border-radius: 30px;
     
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px auto;
+
+    flex-direction: row;
+    justify-content: space-around;
 `;
 
 export const Name = styled.Text`
-    font-size: 20px;
+    font-size: 32px;
     text-transform: capitalize;
+`;
+
+export const Img = styled.Image`
+    width: 100px;
+    height: 100px;
 `;

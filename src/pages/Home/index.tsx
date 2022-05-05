@@ -7,11 +7,13 @@ import {
     FlatList,
 } from "./styles"
 import { IDadosPokemons } from "../../interface/dadosPokemonsModel";
+import { INITIAL_DADOS_POKEMON } from "../../constants/initialDadosPokemon";
 
 function Home({ navigation: { navigate } }) {
 
-    const [dadosPokemons, setDadosPokemons] = useState<IDadosPokemons>()
-
+    const [dadosPokemons, setDadosPokemons] = useState<IDadosPokemons>(INITIAL_DADOS_POKEMON)
+    const [dadosPokemonsFiltrado, setDadosPokemonsFiltrado] = useState<IDadosPokemons>(INITIAL_DADOS_POKEMON)
+    const [dataChanged, setDataChanged] = useState(false)
     const getPokemons = useCallback(async () => {
         try {
             const data = await bancoDeDadosPokemons.get("/pokemon")
@@ -21,21 +23,34 @@ function Home({ navigation: { navigate } }) {
         }
     }, [])
 
+    const filter = (value: string) => {
+        const filtered = dadosPokemons.results.filter((pokemon) => {
+            return pokemon.name.includes(value)
+
+        }
+        )
+        setDadosPokemonsFiltrado(prev => ({ ...prev, results: filtered }))
+        setDataChanged(!dataChanged)
+    }
     useEffect(() => {
         getPokemons()
     }, [])
     return (
         <Container>
-            <Header>
-            </Header>
+            <Header
+                onPressSearch={filter}
+            />
 
             <FlatList
-                data={dadosPokemons?.results}
+                data={dadosPokemonsFiltrado?.results.length > 0
+                    ? dadosPokemonsFiltrado?.results
+                    : dadosPokemons?.results}
                 renderItem={({ item }) => (
 
                     <Button
+                        dataChanged={dataChanged}
+                        item={item}
                         pokemonName={item.name}
-                        onPress={() => { navigate("PokemonPage", item) }}
                     />
                 )}
             />

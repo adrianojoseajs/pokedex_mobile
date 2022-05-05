@@ -5,6 +5,7 @@ export interface IOther {
     "official-artwork": IOfficialArtwork
 }
 export interface ISprites {
+    "front_default": string
     other: IOther
 }
 
