@@ -26,12 +26,12 @@ export const Input = styled.TextInput`
     border: 2px #FFCC00;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 76%;
     height: 60px;
     color: #ffffff;
     font-size: 20px;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     padding: 0 20px;
 `;
 
@@ -42,8 +42,8 @@ export const Btnbuscar = styled.TouchableOpacity`
     width: 30%;
     font-size: 20px;
     height: 60px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 `;
 
 export const Text = styled.Text`

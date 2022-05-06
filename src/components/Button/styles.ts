@@ -5,7 +5,7 @@ export const ButtonContainer = styled.TouchableOpacity`
     width: 96%;
     height: 80px;
     align-items: center;
-    border-radius: 30px;
+    border-radius: 20px;
     
     margin: 5px auto;
 
@@ -19,6 +19,6 @@ export const Name = styled.Text`
 `;
 
 export const Img = styled.Image`
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
 `;

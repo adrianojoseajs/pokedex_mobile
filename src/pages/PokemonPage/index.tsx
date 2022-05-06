@@ -11,7 +11,7 @@ import {
     Categoria,
     Habilidade,
     Tamanho,
-    Peso,
+    Peso
 } from "./styles"
 import { IDadoDeUmPoke } from "../../interface/dadoDeUmPoke"
 import { Image } from "react-native"
