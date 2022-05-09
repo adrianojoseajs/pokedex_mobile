@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 export const Navbar = styled.View`
-    background: #0062B0;
+    background: #3C59A5;
     width: 100%;
     height: 200px;
 `;
@@ -39,7 +39,7 @@ export const Btnbuscar = styled.TouchableOpacity`
     background: #FFCC00;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 24%;
     font-size: 20px;
     height: 60px;
     border-top-right-radius: 20px;
@@ -47,7 +47,7 @@ export const Btnbuscar = styled.TouchableOpacity`
 `;
 
 export const Text = styled.Text`
-    color: #0062B0;
+    color: #3C59A5;
     font-weight: bold;
     font-size: 18px;
 `;

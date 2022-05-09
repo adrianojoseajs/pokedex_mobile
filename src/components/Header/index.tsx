@@ -35,7 +35,7 @@ const Header = ({
                 >
                     <Text>
                         {/* <Img></Img> */}
-                        Busque
+                        Buscar
                     </Text>
                 </Btnbuscar>
             </Row>
